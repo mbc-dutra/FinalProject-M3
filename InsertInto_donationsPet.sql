@@ -1,89 +1,4 @@
-CREATE DATABASE donationsPet;
-USE donationsPet;
-
-CREATE TABLE Donors (
-    donor_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
-    phone VARCHAR(20),
-    address TEXT,
-    cpf_cnpj VARCHAR(20) UNIQUE,
-    registration_date DATE
-);
-
-CREATE TABLE Donations (
-    donation_id INT PRIMARY KEY AUTO_INCREMENT,
-    donor_id INT,
-    donation_category VARCHAR(50),
-    amount DECIMAL(10,2),
-    donation_date DATE,
-    status VARCHAR(20),
-    FOREIGN KEY (donor_id) REFERENCES Donors(donor_id)
-);
-
-CREATE TABLE Animals (
-    animal_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    species VARCHAR(50),
-    breed VARCHAR(50),
-    age INT,
-    animal_condition VARCHAR(50),
-    location VARCHAR(100)
-);
-
-CREATE TABLE Campaigns (
-    campaign_id INT PRIMARY KEY AUTO_INCREMENT,
-    campaign_name VARCHAR(100),
-    description TEXT,
-    fundraising_goal DECIMAL(10, 2),
-    start_date DATE,
-    end_date DATE
-);
-
-CREATE TABLE Inventory (
-    resource_id INT PRIMARY KEY AUTO_INCREMENT,
-    resource_name VARCHAR(100),
-    quantity INT,
-    acquisition_date DATE,
-    expiration_date DATE,
-    unit_price DECIMAL(10, 2),
-    total_price DECIMAL(10, 2),
-    campaign_id INT,  -- Relaciona com Campaigns
-    FOREIGN KEY (campaign_id) REFERENCES Campaigns(campaign_id)
-);
-
-CREATE TABLE FinancialTransactions (
-    transaction_id INT PRIMARY KEY AUTO_INCREMENT,
-    transaction_description TEXT,
-    transaction_type VARCHAR(50),
-    amount DECIMAL(10, 2),
-    transaction_date DATE,
-    payment_method VARCHAR(50),
-    campaign_id INT,  -- Relaciona com Campaigns
-    resource_id INT,  -- Relaciona com Inventory
-    FOREIGN KEY (campaign_id) REFERENCES Campaigns(campaign_id),
-    FOREIGN KEY (resource_id) REFERENCES Inventory(resource_id)
-);
-
-CREATE TABLE Adoptions (
-    adoption_id INT PRIMARY KEY AUTO_INCREMENT,
-    animal_id INT,
-    adopter_id INT,
-    adoption_date DATE,
-    documentation TEXT,
-    FOREIGN KEY (animal_id) REFERENCES Animals(animal_id),
-    FOREIGN KEY (adopter_id) REFERENCES Donors(donor_id)
-);
-
-CREATE TABLE Income (
-    income_id INT PRIMARY KEY AUTO_INCREMENT,
-    source VARCHAR(50),
-    total_amount DECIMAL(10, 2),
-    campaign_id INT,
-    FOREIGN KEY (campaign_id) REFERENCES Campaigns(campaign_id)
-);
-
-SELECT * FROM Donors;
+USE donationspet; -- ARQUIVO INSERÇÃO DE DADOS
 
 INSERT INTO Donors (name, email, phone, address, cpf_cnpj, registration_date) VALUES
 ('Alberto José', 'alberto.jose@example.com', '9876543210', 'Rua C, 456', '987.654.321-01', '2024-01-05'),
@@ -113,9 +28,7 @@ INSERT INTO Donors (name, email, phone, address, cpf_cnpj, registration_date) VA
 ('Lorenzo Carvalho', 'lorenzo.carvalho@example.com', '3456789012', 'Rua AA, 5556', '345.678.901-25', '2024-06-11'),
 ('Mariano Lima', 'mariano.lima@example.com', '4567890123', 'Avenida AB, 5758', '456.789.012-26', '2024-06-11'),
 ('Matheus Marcos', 'matheus.marcos@example.com', '5678901234', 'Rua AC, 5960', '567.890.123-27', '2024-06-11'),
-('Richard Porto', 'richard.porto@example.com', '6789012345', 'Avenida AD, 6162', '2024-06-11');
-
-SELECT * FROM Donations;
+('Richard Porto', 'richard.porto@example.com', '6789012345', 'Avenida AD, 6162', '678.901.234-22', '2024-06-11'); -- Adicionando valor fictício para cpf_cnpj
 
 INSERT INTO Donations (donor_id, donation_category, amount, donation_date, status) VALUES
 (8, 'Alimentos', 80.00, '2023-09-10', 'Pendente'),
@@ -128,8 +41,6 @@ INSERT INTO Donations (donor_id, donation_category, amount, donation_date, statu
 (16, 'Medicamentos', 60.00, '2024-05-20', 'Confirmada'),
 (17, 'Roupas', 110.00, '2024-06-10', 'Pendente'),
 (19, 'Livros', 50.00, '2024-08-15', 'Pendente');
-
-SELECT * FROM Animals;
 
 INSERT INTO Animals (name, species, breed, age, animal_condition, location) VALUES
 ('Rex', 'Cachorro', 'Labrador', 3, 'Em busca de lar', 'Abrigo Municipal'),
@@ -176,8 +87,6 @@ INSERT INTO Animals (name, species, breed, age, animal_condition, location) VALU
 ('Duke', 'Cachorro', 'Golden Retriever', 5, 'Resgatado', 'Abrigo Municipal para Cães de Raça'),
 ('Smokey', 'Gato', 'Maine Coon', 4, 'Em busca de um novo lar', 'Abrigo de Felinos');
 
-SELECT * FROM Campaigns;
-
 INSERT INTO Campaigns (campaign_name, description, fundraising_goal, start_date, end_date) VALUES
 ('Campanha de Verão', 'Arrecadação para cuidados no verão', 5000.00, '2023-06-01', '2023-08-31'),
 ('Campanha de Inverno', 'Arrecadação para aquecimento dos animais', 7000.00, '2023-12-01', '2024-02-28'),
@@ -187,8 +96,6 @@ INSERT INTO Campaigns (campaign_name, description, fundraising_goal, start_date,
 ('Campanha de Castração', 'Arrecadação para esterilização dos animais do abrigo', 5000.00, '2024-06-01', '2024-07-15'),
 ('Campanha de Treinamento', 'Arrecadação para treinamento comportamental dos animais', 5500.00, '2024-07-01', '2024-08-15'),
 ('Campanha de Aniversário', 'Arrecadação de fundos para comemorar o aniversário do abrigo', 6000.00, '2024-08-01', '2024-09-15');
-
-SELECT * FROM Inventory;
 
 INSERT INTO Inventory (resource_name, quantity, acquisition_date, expiration_date, unit_price, total_price) VALUES
 ('Antipulgas', 100, '2024-06-11', '2024-06-11', 200.00, 20000.00),
@@ -200,8 +107,6 @@ INSERT INTO Inventory (resource_name, quantity, acquisition_date, expiration_dat
 ('Ração', 50, '2024-06-11', '2024-06-11', 99.00, 4950.00),
 ('Roupas', 20, '2024-06-11', '2024-06-11', 20.00, 400.00),
 ('Shampoo', 100, '2024-06-11', '2024-06-11', 50.00, 5000.00);
-
-SELECT * FROM FinancialTransactions;
 
 INSERT INTO FinancialTransactions (transaction_description, transaction_type, amount, transaction_date, payment_method) VALUES
 ('Doação de Alberto José', 'Entrada', 6380.00, '2024-01-15', 'Cartão de Crédito'),
@@ -261,9 +166,7 @@ INSERT INTO FinancialTransactions (transaction_description, transaction_type, am
 ('Doação de Sandra Ciro', 'Entrada', 9935.00, '2024-05-23', 'Cartão de Débito'),
 ('Doação de Velma Eduarda', 'Entrada', 436.00, '2024-05-20', 'Cartão de Débito');
 
-SELECT * FROM Adoptions;
-
-INSERT INTO Adoptions (animal_id, adopter_id, adoption_date, documentation) VALUES
+INSERT INTO adoptions (animal_id, adopter_id, adoption_date, documentation) VALUES
 (3, 3, '2023-06-20', 'Contrato de adoção assinado por Marcos Silva'),
 (4, 4, '2023-07-25', 'Contrato de adoção assinado por Ana Oliveira'),
 (5, 5, '2023-08-30', 'Contrato de adoção assinado por Pedro Santos'),
@@ -289,9 +192,7 @@ INSERT INTO Adoptions (animal_id, adopter_id, adoption_date, documentation) VALU
 (25, 25, '2025-04-10', 'Contrato de adoção assinado por Lucaszinho Martins'),
 (26, 26, '2025-05-15', 'Contrato de adoção assinado por Anazinha Ferreira'),
 (27, 27, '2025-06-20', 'Contrato de adoção assinado por Pedrinho Oliveira'),
-(28, 28, '2025-07-25', 'Contrato de adoção assinado por Mariazinha Vieira'),
-(29, 29, '2025-08-30', 'Contrato de adoção assinado por Joãozinho Silva'),
-(30, 30, '2025-09-05', 'Contrato de adoção assinado por Ana Maria Santos');
+(28, 28, '2025-07-25', 'Contrato de adoção assinado por Mariazinha Vieira');
 
 INSERT INTO Income (source, total_amount) VALUES
 ('ONGs', 10000.00),
