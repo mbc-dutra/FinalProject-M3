@@ -197,6 +197,106 @@ INSERT INTO Income (source, total_amount) VALUES
 ('Parcerias', 40000.00),
 ('Campanha Online', 60000.00);
 
+INSERT INTO Animals (animal_id, species, breed, gender, age)
+VALUES 
+(22, 'Gato', 'Siamês', 'Fêmea', 3),
+(23, 'Cachorro', 'Beagle', 'Macho', 5),
+(24, 'Cachorro', 'Poodle', 'Fêmea', 7),
+(25, 'Gato', 'Persa', 'Macho', 1),
+(26, 'Cachorro', 'Bulldog', 'Fêmea', 8),
+(27, 'Gato', 'Sphynx', 'Fêmea', 4),
+(28, 'Cachorro', 'Golden Retriever', 'Macho', 6),
+(29, 'Gato', 'Bengal', 'Macho', 2),
+(30, 'Cachorro', 'Chihuahua', 'Fêmea', 10),
+(31, 'Gato', 'Maine Coon', 'Fêmea', 9),
+(32, 'Cachorro', 'Dachshund', 'Macho', 1),
+(33, 'Gato', 'Birmanês', 'Fêmea', 3),
+(34, 'Cachorro', 'Shih Tzu', 'Fêmea', 5),
+(35, 'Gato', 'Ragdoll', 'Macho', 4),
+(36, 'Cachorro', 'Boxer', 'Macho', 6),
+(37, 'Gato', 'Chartreux', 'Fêmea', 7),
+(38, 'Cachorro', 'Cocker Spaniel', 'Fêmea', 2),
+(39, 'Gato', 'Savannah', 'Macho', 3),
+(40, 'Cachorro', 'Border Collie', 'Macho', 8);
+
+INSERT INTO Adoptions (adoption_id, animal_id, adoption_date)
+VALUES 
+(21, 21, '2023-01-05'),
+(22, 22, '2023-02-10'),
+(23, 23, '2023-03-15'),
+(24, 24, '2023-04-20'),
+(25, 25, '2023-05-25'),
+(26, 26, '2023-06-30'),
+(27, 27, '2023-07-05'),
+(28, 28, '2023-08-10'),
+(29, 29, '2023-09-15'),
+(30, 30, '2023-10-20'),
+(31, 31, '2023-11-25'),
+(32, 32, '2023-12-30'),
+(33, 33, '2024-01-04'),
+(34, 34, '2024-02-09'),
+(35, 35, '2024-03-14'),
+(36, 36, '2024-04-19'),
+(37, 37, '2024-05-24'),
+(38, 38, '2024-06-29'),
+(39, 39, '2024-07-04'),
+(40, 40, '2024-08-09');
+
+
+
+
+
+
+
+
+INSERT INTO Animals (animal_id, species, breed, gender, age)
+VALUES 
+(21, 'Cachorro', 'Labrador', 'Macho', 2),
+(22, 'Gato', 'Siamês', 'Fêmea', 3),
+(23, 'Cachorro', 'Beagle', 'Macho', 5),
+(24, 'Cachorro', 'Poodle', 'Fêmea', 7),
+(25, 'Gato', 'Persa', 'Macho', 1),
+(26, 'Cachorro', 'Bulldog', 'Fêmea', 8),
+(27, 'Gato', 'Sphynx', 'Fêmea', 4),
+(28, 'Cachorro', 'Golden Retriever', 'Macho', 6),
+(29, 'Gato', 'Bengal', 'Macho', 2),
+(30, 'Cachorro', 'Chihuahua', 'Fêmea', 10),
+(31, 'Gato', 'Maine Coon', 'Fêmea', 9),
+(32, 'Cachorro', 'Dachshund', 'Macho', 1),
+(33, 'Gato', 'Birmanês', 'Fêmea', 3),
+(34, 'Cachorro', 'Shih Tzu', 'Fêmea', 5),
+(35, 'Gato', 'Ragdoll', 'Macho', 4),
+(36, 'Cachorro', 'Boxer', 'Macho', 6),
+(37, 'Gato', 'Chartreux', 'Fêmea', 7),
+(38, 'Cachorro', 'Cocker Spaniel', 'Fêmea', 2),
+(39, 'Gato', 'Savannah', 'Macho', 3),
+(40, 'Cachorro', 'Border Collie', 'Macho', 8);
+
+INSERT INTO Adoptions (adoption_id, animal_id, adoption_date)
+VALUES 
+(41, 21, '2023-01-05'),
+(42, 22, '2023-02-10'),
+(43, 23, '2023-03-15'),
+(44, 24, '2023-04-20'),
+(45, 25, '2023-05-25'),
+(46, 26, '2023-06-30'),
+(47, 27, '2023-07-05'),
+(48, 28, '2023-08-10'),
+(49, 29, '2023-09-15'),
+(50, 30, '2023-10-20'),
+(51, 31, '2023-11-25'),
+(52, 32, '2023-12-30'),
+(53, 33, '2024-01-04'),
+(54, 34, '2024-02-09'),
+(55, 35, '2024-03-14'),
+(56, 36, '2024-04-19'),
+(57, 37, '2024-05-24'),
+(58, 38, '2024-06-29'),
+(59, 39, '2024-07-04'),
+(60, 40, '2024-08-09');
+
+
+
 
 
 
