@@ -60,11 +60,13 @@ CREATE TABLE FinancialTransactions (
     transaction_date DATE,
     payment_method VARCHAR(50),
     campaign_id INT,  -- Relaciona com Campaigns
-    resource_id INT,  -- Relaciona com Inventory
-    FOREIGN KEY (transaction_id) REFERENCES Donations(donation_id),
+    resource_id INT,
+    donation_id INT,-- Relaciona com Inventory
+    FOREIGN KEY (donation_id) REFERENCES Donations(donation_id),
     FOREIGN KEY (campaign_id) REFERENCES Campaigns(campaign_id),
     FOREIGN KEY (resource_id) REFERENCES Inventory(resource_id)
 );
+drop table FinancialTransactions;
 
 CREATE TABLE Adoptions (
     adoption_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -83,3 +85,19 @@ CREATE TABLE Income (
     campaign_id INT,
     FOREIGN KEY (campaign_id) REFERENCES Campaigns(campaign_id)
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
