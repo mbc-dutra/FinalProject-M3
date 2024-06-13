@@ -1,0 +1,42 @@
+# Sistema de Gerenciamento de Doações para Pets🖥️🐶
+Este é um sistema de gerenciamento de doações para organizações que cuidam de animais de estimação.
+Ele permite registrar doadores, animais disponíveis para adoção, campanhas de arrecadação, transações financeiras e inventário de recursos.
+## 🛠️ Ferramentas utilizadas:
+
+
+* [MySQL] Workbench](https://dev.mysql.com/downloads/workbench/) -Sistema de gerenciamento de banco de dados
+* [DBdiagram](https://dbdiagram.io/d/PETHOTEL-665ce3b0b65d9338794daf7a) -Relacionador de Banco de dados
+* [BRMODELO](https://rometools.github.io/rome/) - Modelagem de Dados
+
+## Estrutura do Banco de Dados🖥️
+O banco de dados inclui tabelas para armazenar informações sobre doadores, doações, animais, campanhas, transações financeiras, adoções e fontes de renda. Aqui está uma visão geral das principais tabelas:
+
+Donors: Armazena informações sobre os doadores, como nome, email, telefone e endereço.
+Donations: Registra as doações feitas pelos doadores, incluindo a categoria da doação, o valor e a data.
+Animals: Contém detalhes sobre os animais disponíveis para adoção, como nome, espécie, raça e condição.
+Campaigns: Mantém o controle das campanhas de arrecadação, incluindo nome, descrição, meta de arrecadação e datas de início e término.
+Inventory: Registra os recursos disponíveis, como alimentos, medicamentos e brinquedos, incluindo quantidade, preço unitário e datas de aquisição e validade.
+FinancialTransactions: Armazena transações financeiras, como doações e pagamentos, relacionadas às campanhas e recursos.
+Adoptions: Registra as adoções de animais, incluindo informações sobre o animal, adotante, data de adoção e documentação.
+Income: Contém informações sobre as fontes de renda, como doações de ONGs, prefeituras, pessoas físicas e jurídicas, subsídios governamentais, parcerias e campanhas online.
+
+## Instruções de Uso📝
+Criar Banco de Dados: Execute o script de criação do banco de dados para configurar a estrutura inicial.
+Inserir Dados: Execute o script de inserção de dados para preencher as tabelas com as informações.
+
+# ✒️ Autores
+
+* **Samira Ferreira** - *Código SQL/Modelagem de Dados/Slide* - [Samira Ferreira](https://github.com/linkParaPerfil)
+* **Samira** - *BrModelo* - [Samira](https://github.com/linkParaPerfil)
+* **Matheus** - *Gráficos/Código SQL* - [Matheus](https://github.com/mbc-dutra)
+* **Raissa** - *Código SQL/Tabelas SQL* - [Raissa](raissarlsantos@gmail.com)
+* **Mário** - *Documentação/DBdiagram* - [Mário](https://github.com/maro-silvv)
+* **Hewell Belmonte** - *Gráficos* - [Hewell](https://github.com/hewelbelmonte)
+
+
+## 🎁 Agradecimentos
+* Conte a outras pessoas sobre este projeto 📢;
+* Agradecemos a Pda pela ajuda com projeto;
+* etc.
+
+
